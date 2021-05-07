@@ -20,11 +20,11 @@ $(HTMLDIR):
 $(MDDIR):
 	mkdir -p $@
 
-$(HTMLDIR)/%.html: $(SRCDIR)/%.wpp $(HTMLDIR)
+$(HTMLDIR)/%.html: $(SRCDIR)/%.wpp backends/html.wpp $(HTMLDIR)
 	ln -Pf backends/html.wpp backends/backend.wpp
 	$(WPP) -s $(SEARCH_PATH) -o $@ $<
 
-$(MDDIR)/%.md: $(SRCDIR)/%.wpp $(MDDIR)
+$(MDDIR)/%.md: $(SRCDIR)/%.wpp backends/markdown.wpp $(MDDIR)
 	ln -Pf backends/markdown.wpp backends/backend.wpp
 	$(WPP) -s $(SEARCH_PATH) -o $@ $<
 

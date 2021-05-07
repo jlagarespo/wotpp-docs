@@ -1,0 +1,10 @@
+let title "The wot++ documentation"
+use "backend.wpp"
+
+p#"Welcome to the home of the wot++ documentation! This needs a lot of writing,
+which, since I'm writing this for testing purposes, I can't be bothered to do."#
+
+'\n'
+
+footer
+

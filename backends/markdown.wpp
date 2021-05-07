@@ -1,2 +1,39 @@
-"markdown\n"
+let ~ ""
+
+let h1(x) "# " .. x .. '\n'
+let h2(x) "## " .. x .. '\n'
+let h3(x) "### " .. x .. '\n'
+let h4(x) "#### " .. x .. '\n'
+let h5(x) "##### " .. x .. '\n'
+let h6(x) "###### " .. x .. '\n'
+
+let sur(x, y) x .. y .. x
+
+let i(x) sur("*", x)
+let b(x) sur("**", x)
+
+let code(x) sur("`", x)
+let codeblock(lang, x) sur("```", lang .. '\n' .. x .. '\n') .. '\n'
+
+let ul() {
+	let list_prefix " * "
+	~
+}
+
+let ol() {
+	let list_prefix "1. "
+	~
+}
+
+let li(x)
+	list_prefix .. x .. '\n'
+
+let hr "---" .. '\n'
+
+let link(name, url) "[" .. name .. "](" .. url .. ")" .. '\n'
+let img(name, url) "![" .. name .. "](" .. url .. ")" .. '\n'
+let quote(x) "> " .. x .. '\n'
+
+let footer ""
+h1(title)
 
