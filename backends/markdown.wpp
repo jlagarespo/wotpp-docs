@@ -38,6 +38,11 @@ let link(name, url) "[" .. name .. "](" .. url .. ")" .. '\n'
 let img(name, url) "![" .. name .. "](" .. url .. ")" .. '\n'
 let quote(x) "> " .. x .. '\n'
 
+#[ HTML specific stuff ]
+let sub(x) "<sub>" .. x .. "</sub>"
+let sup(x) "<sup>" .. x .. "</sup>"
+let time(x) "<time>" .. x .. "</time>"
+
 r#"---
 layout: page
 title: "# .. title .. r#"

@@ -19,6 +19,10 @@ simple_tag_nl("p")
 let i(x) "<em>" .. x .. "</em>"
 let b(x) "<strong>" .. x .. "</strong>"
 
+simple_tag("sub")
+simple_tag("sup")
+simple_tag("time")
+
 simple_tag("code")
 let codeblock(lang, x) "<div style='display:block;'><code>\n" .. x .. "</code></div>\n"
 let sample(x) "<samp>" .. x .. "</samp>\n"
@@ -64,6 +68,7 @@ r#"<!DOCTYPE html>
 "#
 h1(title)
 
-let footer r#"</body>
+let footer r#"Build time: "# .. time(run "date") .. r#"
+</body>
 </html>
 "#
