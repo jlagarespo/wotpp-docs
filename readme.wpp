@@ -1,0 +1,3 @@
+let title "The wot++ documentation system"
+use "backends/markdown.wpp"
+

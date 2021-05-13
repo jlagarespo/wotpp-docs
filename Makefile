@@ -9,7 +9,7 @@ SEARCH_PATH := $(shell pwd)/backends/
 
 .phony: clean
 
-all: $(HTMLFILES) $(MDFILES)
+all: $(HTMLFILES) $(MDFILES) readme.md
 
 clean:
 	rm backends/backend.wpp $(HTMLFILES) $(MDFILES)
@@ -22,9 +22,12 @@ $(MDDIR):
 
 $(HTMLDIR)/%.html: $(SRCDIR)/%.wpp backends/html.wpp $(HTMLDIR)
 	ln -Pf backends/html.wpp backends/backend.wpp
-	$(WPP) -s $(SEARCH_PATH) -o $@ $<
+	$(WPP) -s $(SEARCH_PATH) $< > $@
 
 $(MDDIR)/%.md: $(SRCDIR)/%.wpp backends/markdown.wpp $(MDDIR)
 	ln -Pf backends/markdown.wpp backends/backend.wpp
-	$(WPP) -s $(SEARCH_PATH) -o $@ $<
+	$(WPP) -s $(SEARCH_PATH) $< > $@
+
+readme.md: readme.wpp
+	$(WPP) -s $(SEARCH_PATH) $< > $@
 

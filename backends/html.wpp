@@ -1,3 +1,48 @@
-"<html TODO>\n"
-let footer "</html>\n"
+let ~ ""
+
+let simple_tag(x) !{
+	"let " .. x .. "(x) '<" .. x .. ">' .. x .. '</" .. x .. ">'"
+}
+
+let simple_tag_nl(x) !{
+	"let " .. x .. "(x) '<" .. x .. ">' .. x .. '</" .. x .. ">\\n'"
+}
+
+simple_tag_nl("h1")
+simple_tag_nl("h2")
+simple_tag_nl("h3")
+simple_tag_nl("h4")
+simple_tag_nl("h5")
+simple_tag_nl("h6")
+simple_tag_nl("p")
+
+let i(x) "<em>" .. x .. "</em>"
+let b(x) "<strong>" .. x .. "</strong>"
+
+simple_tag("code")
+let codeblock(lang, x) "<div style='display:block;'><code>\n" .. x .. "</code></div>\n"
+let sample(x) "<samp>" .. x .. "</samp>\n"
+
+let list() ~
+let list(x)
+	li(x) .. pop list(*)
+
+let ul()
+	"<ul>\n" .. pop list(*) .. "</ul>\n" 
+
+let ol()
+	"<ol>\n" .. pop list(*) .. "</ol>\n" 
+
+simple_tag_nl("li")
+
+let hr "<hr>\n"
+
+let link(name, url) "<a href='" .. url .. "'>" .. name .. "</a>"
+let img(name, src, alt) "<img src='" .. src .. "' alt='" .. alt .. "'>\n"
+let quote(x) "<blockquote>" .. x .. "</blockquote>\n"
+
+let footer ""
+h1(title)
+
+
 
