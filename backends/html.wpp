@@ -24,7 +24,7 @@ simple_tag("sup")
 simple_tag("time")
 
 simple_tag("code")
-let codeblock(lang, x) "<div style='display:block;'><code>\n" .. x .. "</code></div>\n"
+let codeblock(lang, x) "<pre><code>" .. x .. "</code></pre>\n"
 let sample(x) "<samp>" .. x .. "</samp>\n"
 
 let list() ~
@@ -40,10 +40,12 @@ let ol()
 simple_tag_nl("li")
 
 let hr "<hr>\n"
+let br "<br>\n"
 
 let link(name, url) "<a href='" .. url .. "'>" .. name .. "</a>"
 let img(name, src, alt) "<img src='" .. src .. "' alt='" .. alt .. "'>\n"
-let quote(x) "<blockquote>" .. x .. "</blockquote>\n"
+let quote(x, cite) "<blockquote cite='" .. cite .. "'>" .. x .. "</blockquote>\n"
+let quote(x) quote(x, "")
 
 r#"<!DOCTYPE html>
 <html lang="en" class="no-js">

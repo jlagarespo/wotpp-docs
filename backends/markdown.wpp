@@ -33,10 +33,12 @@ let ol() {
 }
 
 let hr "---" .. '\n'
+let br "\n\n"
 
 let link(name, url) "[" .. name .. "](" .. url .. ")" .. '\n'
 let img(name, url) "![" .. name .. "](" .. url .. ")" .. '\n'
-let quote(x) "> " .. x .. '\n'
+let quote(x, cite) "> " .. x .. '\n'
+let quote(x) quote(x, "")
 
 #[ HTML specific stuff ]
 let sub(x) "<sub>" .. x .. "</sub>"
