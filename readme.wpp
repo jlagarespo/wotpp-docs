@@ -1,3 +1,7 @@
 let title "The wot++ documentation system"
+let description title
 use "backends/markdown.wpp"
+
+p(p#"This repo contains the wot++ documentation system, written (obviously)
+in wot++. You only need wot++ and GNU make to build all the docs. Enjoy!"#)
 

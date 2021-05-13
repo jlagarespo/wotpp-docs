@@ -41,8 +41,29 @@ let link(name, url) "<a href='" .. url .. "'>" .. name .. "</a>"
 let img(name, src, alt) "<img src='" .. src .. "' alt='" .. alt .. "'>\n"
 let quote(x) "<blockquote>" .. x .. "</blockquote>\n"
 
-let footer ""
+r#"<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>"# .. title .. r#"</title>
+
+	<meta name="description" content=""# .. description .. r#"">
+	<meta property="og:title" content=""# .. title .. r#"">
+	<meta property="og:description" content=""# .. description .. r#"">
+	<meta property="og:image" content="">
+	<meta property="og:image:alt" content="">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="CHANGEME!!!">
+	<link rel="canonical" href="CHANGEME!!!">
+
+	<link rel="icon" href="/favicon.ico">
+	<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+"#
 h1(title)
 
-
-
+let footer r#"</body>
+</html>
+"#

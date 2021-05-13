@@ -12,7 +12,7 @@ SEARCH_PATH := $(shell pwd)/backends/
 all: $(HTMLFILES) $(MDFILES) readme.md
 
 clean:
-	rm backends/backend.wpp $(HTMLFILES) $(MDFILES)
+	rm readme.md backends/backend.wpp $(HTMLFILES) $(MDFILES)
 
 $(HTMLDIR):
 	mkdir -p $@

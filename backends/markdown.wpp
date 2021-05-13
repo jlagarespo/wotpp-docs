@@ -38,6 +38,13 @@ let link(name, url) "[" .. name .. "](" .. url .. ")" .. '\n'
 let img(name, url) "![" .. name .. "](" .. url .. ")" .. '\n'
 let quote(x) "> " .. x .. '\n'
 
+r#"---
+layout: page
+title: "# .. title .. r#"
+description: "# .. description .. r#"
+---
+"#
+
 let footer ""
 h1(title)
 

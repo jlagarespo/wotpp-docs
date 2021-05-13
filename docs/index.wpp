@@ -1,4 +1,5 @@
 let title "The wot++ documentation"
+let description "Homepage of the wot++ documentation system."
 use "backend.wpp"
 
 p(p#"Welcome to the home of the wot++ documentation! This needs a lot of writing,
