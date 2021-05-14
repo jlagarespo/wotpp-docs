@@ -62,56 +62,85 @@ let li(x) #[ No attribs for li. ]
 
 let list() ~
 let list(x)
-	li(x) .. pop list(*)
+	indent() .. li(x) .. pop list(*)
 
-let ul()
-	"<ul>\n" .. pop list(*) .. "</ul>\n" 
+let ul() {
+	indent_forward()
+	let list pop list(*)
+	drop indent()
+	"<ul>\n" .. list .. "</ul>\n" 
+}
 
-let ol()
-	"<ol>\n" .. pop list(*) .. "</ol>\n" 
+let ol() {
+	indent_forward()
+	let list pop list(*)
+	drop indent()
+	"<ol>\n" .. list .. "</ol>\n"
+}
 
 let hr "<hr>\n"
 let br "<br>\n"
 
 
 #[ Links ]
-let link(name, url) "<a href='" .. url .. "'>" .. name .. "</a>"
-let img(name, src, alt) "<img src='" .. src .. "' alt='" .. alt .. "'>\n"
+let link(name, url) "<a" .. attrs("href", url) .. ">" .. name .. "</a>"
+let img(name, src, alt) "<img" .. attrs("src", src, "alt", alt) .. "'>\n"
 
 #[ Quotes ]
-let quote(x, cite) "<blockquote cite='" .. cite .. "'>" .. x .. "</blockquote>\n"
+let quote(x, cite) "<blockquote" ..  attrs("cite", cite) .. ">" .. x .. "</blockquote>\n"
 let quote(x) quote(x, "")
+
+
+#[ Indent blocks ]
+let block_statement() {
+	drop indent()
+	~
+}
+
+let block_statement(x) {
+	indent() .. x .. '\n' .. pop block_statement(*)
+}
+
+let block() {
+	indent_forward()
+	'\n' .. pop block_statement(*)
+}
+
+let indent_forward()
+	!{ "let indent() '" .. indent() .. "\t'" }
+
+let indent() ~
 
 
 #[ Header ]
 simple_tag_nl(\head)
-simple_tag_nl(\title)
+simple_tag(\title)
 let meta()
-	"<meta" .. pop attrs(*, *) .. ">\n"
+	"<meta" .. pop attrs(*, *) .. ">"
 let hlink()
-	"<link" .. pop attrs(*, *) .. ">\n"
+	"<link" .. pop attrs(*, *) .. ">"
 
 r#"<!DOCTYPE html>
 <html lang="en" class="no-js">
 "#
-head(
-	meta("charset", "UTF-8") ..
-	meta("name", "viewport", "content", "width=device-width") ..
-	title(title) ..
+head(block(
+	meta("charset", "UTF-8"),
+	meta("name", "viewport", "content", "width=device-width"),
+	title(title),
 
-	meta("name", "description", "content", description) ..
-	meta("property", "og:title", "content", title) ..
-	meta("property", "og:description", "content", description) ..
-	meta("property", "og:image", "content", "") ..
-	meta("property", "og:image:alt", "content", "") ..
-	meta("property", "og:type", "content", "website") ..
-	meta("property", "og:url", "content", "CHANGEME!!!") ..
-	hlink("rel", "canonical", "href", "CHANGEME!!!") ..
+	meta("name", "description", "content", description),
+	meta("property", "og:title", "content", title),
+	meta("property", "og:description", "content", description),
+	meta("property", "og:image", "content", ""),
+	meta("property", "og:image:alt", "content", ""),
+	meta("property", "og:type", "content", "website"),
+	meta("property", "og:url", "content", "CHANGEME!!!"),
+	hlink("rel", "canonical", "href", "CHANGEME!!!"),
 
-	hlink("rel", "icon", "href", "/favicon.ico") ..
-	hlink("rel", "icon", "href", "/favicon.svg", "type", "image/svg+xml") ..
+	hlink("rel", "icon", "href", "/favicon.ico"),
+	hlink("rel", "icon", "href", "/favicon.svg", "type", "image/svg+xml"),
 	hlink("rel", "stylesheet", "href", "/style/pygments-css/trac.css")
-)
+))
 r#"<body>
 "#
 h1(title)

@@ -2,8 +2,8 @@ let title "The wot++ documentation"
 let description "Homepage of the wot++ documentation system."
 use "backend.wpp"
 
-p(p#"Welcome to the home of the wot++ documentation! This needs a lot of writing,
-which, since I'm writing this for testing purposes, I can't be bothered to do."#)
+p(block(p#"Welcome to the home of the wot++ documentation! This needs a lot of writing,
+which, since I'm writing this for testing purposes, I can't be bothered to do."#))
 
 h1("level 1 header")
 h2("level 2 header")

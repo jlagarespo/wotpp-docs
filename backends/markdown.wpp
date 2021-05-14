@@ -44,6 +44,8 @@ let quote(x) quote(x, "")
 let sub(x) "<sub>" .. x .. "</sub>"
 let sup(x) "<sup>" .. x .. "</sup>"
 let time(x) "<time>" .. x .. "</time>"
+let block() ~
+let block(x) x .. '\n' .. pop block(*)
 
 r#"---
 layout: page
