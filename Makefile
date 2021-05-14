@@ -29,6 +29,6 @@ $(MDDIR)/%.md: $(SRCDIR)/%.wpp backends/markdown.wpp $(MDDIR)
 	ln -Pf backends/markdown.wpp backends/backend.wpp
 	$(WPP) -s $(SEARCH_PATH) $< > $@
 
-readme.md: readme.wpp
+readme.md: readme.wpp backends/markdown.wpp
 	$(WPP) -s $(SEARCH_PATH) $< > $@
 

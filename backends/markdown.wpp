@@ -35,7 +35,7 @@ let ol() {
 let hr "---" .. '\n'
 let br "\n\n"
 
-let link(name, url) "[" .. name .. "](" .. url .. ")" .. '\n'
+let link(name, url) "[" .. name .. "](" .. url .. ")"
 let img(name, url) "![" .. name .. "](" .. url .. ")" .. '\n'
 let quote(x, cite) "> " .. x .. '\n'
 let quote(x) quote(x, "")

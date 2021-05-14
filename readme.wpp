@@ -3,5 +3,10 @@ let description title
 use "backends/markdown.wpp"
 
 p(p#"This repo contains the wot++ documentation system, written (obviously)
-in wot++. You only need wot++ and GNU make to build all the docs. Enjoy!"#)
+in wot++. Enjoy!"#)
+
+h2("Requirements")
+ul(link("wot++", "https://github.com/wotpp/wotpp"),
+   link("GNU make", "https://www.gnu.org/software/make/"),
+   link("pygments", "https://pygments.org/"))
 

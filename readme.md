@@ -5,4 +5,9 @@ description: The wot++ documentation system
 ---
 # The wot++ documentation system
 This repo contains the wot++ documentation system, written (obviously)
-in wot++. You only need wot++ and GNU make to build all the docs. Enjoy!
+in wot++. Enjoy!
+## Requirements
+* [wot++](https://github.com/wotpp/wotpp)
+* [GNU make](https://www.gnu.org/software/make/)
+* [pygments](https://pygments.org/)
+
