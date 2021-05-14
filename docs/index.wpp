@@ -12,6 +12,8 @@ h4("level 4 header")
 h5("level 5 header")
 h6("level 6 header")
 
+h3("Example red heading", "style", "color: red")
+
 i("some italic text") " " b("and some bold one") br
 sup("superscript") " and " sub("subscript") br
 time("Time: " .. run "date") br

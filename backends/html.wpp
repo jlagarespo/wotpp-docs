@@ -1,29 +1,51 @@
 let ~ ""
 
-let simple_tag(x) !{
-	"let " .. x .. "(x) '<" .. x .. ">' .. x .. '</" .. x .. ">'"
+let declare_tag(name, tag) !{
+	"let " .. name .. "(x) '<" .. tag .. pop attrs(*, *) .. ">' .. x .. '</" .. tag .. ">'"
 }
 
-let simple_tag_nl(x) !{
-	"let " .. x .. "(x) '<" .. x .. ">' .. x .. '</" .. x .. ">\\n'"
+let declare_tag_nl(name, tag) !{
+	"let " .. name .. "(x) '<" .. tag .. "' .. pop attrs(*, *) .. '>' .. x .. '</" .. tag .. ">\\n'"
+} 
+
+let simple_tag(x)
+	declare_tag(x, x)
+
+let simple_tag_nl(x)
+	declare_tag_nl(x, x)
+
+let attr(attr, x)
+	attr .. "='" .. x .. "'"
+
+let attrs() ~
+let attrs(attr) {
+	error "no value provided for attribute " .. attr
+	~
 }
 
-simple_tag_nl("h1")
-simple_tag_nl("h2")
-simple_tag_nl("h3")
-simple_tag_nl("h4")
-simple_tag_nl("h5")
-simple_tag_nl("h6")
-simple_tag_nl("p")
+let attrs(attr, x)
+	" " .. attr(attr, x) .. pop attrs(*, *)
 
-let i(x) "<em>" .. x .. "</em>"
-let b(x) "<strong>" .. x .. "</strong>"
+#[ Document structure ]
+simple_tag_nl(\h1)
+simple_tag_nl(\h2)
+simple_tag_nl(\h3)
+simple_tag_nl(\h4)
+simple_tag_nl(\h5)
+simple_tag_nl(\h6)
+simple_tag_nl(\p)
 
-simple_tag("sub")
-simple_tag("sup")
-simple_tag("time")
+#[ General formatting ]
+declare_tag(\i, "em")
+declare_tag(\b, "strong")
+simple_tag(\sub)
+simple_tag(\sup)
+simple_tag(\time)
 
-simple_tag("code")
+
+#[ Code stuff ]
+declare_tag_nl(\sample, "samp")
+simple_tag(\code)
 let codeblock(lang, x) {
 	"<pre><code>" .. 
 	match lang {
@@ -32,7 +54,10 @@ let codeblock(lang, x) {
 	}
 	.. "</code></pre>\n"
 }
-let sample(x) "<samp>" .. x .. "</samp>\n"
+
+
+#[ List ]
+simple_tag_nl(\li)
 
 let list() ~
 let list(x)
@@ -44,40 +69,53 @@ let ul()
 let ol()
 	"<ol>\n" .. pop list(*) .. "</ol>\n" 
 
-simple_tag_nl("li")
-
 let hr "<hr>\n"
 let br "<br>\n"
 
+
+#[ Links ]
 let link(name, url) "<a href='" .. url .. "'>" .. name .. "</a>"
 let img(name, src, alt) "<img src='" .. src .. "' alt='" .. alt .. "'>\n"
+
+#[ Quotes ]
 let quote(x, cite) "<blockquote cite='" .. cite .. "'>" .. x .. "</blockquote>\n"
 let quote(x) quote(x, "")
 
+
+#[ Header ]
+simple_tag_nl(\head)
+simple_tag_nl(\title)
+let meta()
+	"<meta" .. pop attrs(*, *) .. ">\n"
+let hlink()
+	"<link" .. pop attrs(*, *) .. ">\n"
+
 r#"<!DOCTYPE html>
 <html lang="en" class="no-js">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width">
-	<title>"# .. title .. r#"</title>
+"#
+head(
+	meta("charset", "UTF-8") ..
+	meta("name", "viewport", "content", "width=device-width") ..
+	title(title) ..
 
-	<meta name="description" content=""# .. description .. r#"">
-	<meta property="og:title" content=""# .. title .. r#"">
-	<meta property="og:description" content=""# .. description .. r#"">
-	<meta property="og:image" content="">
-	<meta property="og:image:alt" content="">
-	<meta property="og:type" content="website">
-	<meta property="og:url" content="CHANGEME!!!">
-	<link rel="canonical" href="CHANGEME!!!">
+	meta("name", "description", "content", description) ..
+	meta("property", "og:title", "content", title) ..
+	meta("property", "og:description", "content", description) ..
+	meta("property", "og:image", "content", "") ..
+	meta("property", "og:image:alt", "content", "") ..
+	meta("property", "og:type", "content", "website") ..
+	meta("property", "og:url", "content", "CHANGEME!!!") ..
+	hlink("rel", "canonical", "href", "CHANGEME!!!") ..
 
-	<link rel="icon" href="/favicon.ico">
-	<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-	<link rel="stylesheet" href="/style/pygments-css/trac.css">
-</head>
-<body>
+	hlink("rel", "icon", "href", "/favicon.ico") ..
+	hlink("rel", "icon", "href", "/favicon.svg", "type", "image/svg+xml") ..
+	hlink("rel", "stylesheet", "href", "/style/pygments-css/trac.css")
+)
+r#"<body>
 "#
 h1(title)
 
+#[ Footer ]
 let footer r#"Build time: "# .. time(run "date") .. r#"
 </body>
 </html>
