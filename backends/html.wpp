@@ -57,7 +57,8 @@ let codeblock(lang, x) {
 
 
 #[ List ]
-simple_tag_nl(\li)
+let li(x) #[ No attribs for li. ]
+	"<li>" .. x .. "</li>\n"
 
 let list() ~
 let list(x)
