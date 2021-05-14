@@ -16,7 +16,7 @@ let b(x) sur("**", x)
 
 let code(x) sur("`", x)
 let codeblock(lang, x) sur("```", lang .. '\n' .. x .. '\n') .. '\n'
-let sample(x) sur("```\n", x)
+let sample(x) sur("```\n", x .. '\n')
 
 let list() ~
 let list(x)

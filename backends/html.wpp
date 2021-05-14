@@ -24,7 +24,14 @@ simple_tag("sup")
 simple_tag("time")
 
 simple_tag("code")
-let codeblock(lang, x) "<pre><code>" .. x .. "</code></pre>\n"
+let codeblock(lang, x) {
+	"<pre><code>" .. 
+	match lang {
+		"wpp" -> x #[ TODO: Write a wot++ lexer for pygments, ]
+		* -> pipe {"pygmentize -f html -l " .. lang} x
+	}
+	.. "</code></pre>\n"
+}
 let sample(x) "<samp>" .. x .. "</samp>\n"
 
 let list() ~
@@ -65,6 +72,7 @@ r#"<!DOCTYPE html>
 
 	<link rel="icon" href="/favicon.ico">
 	<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+	<link rel="stylesheet" href="/style/pygments-css/trac.css">
 </head>
 <body>
 "#

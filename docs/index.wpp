@@ -31,6 +31,44 @@ a()a()a()
 "Output:" br
 sample("abc")
 
+codeblock("cpp", c#"
+// Time for some C++
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+constexpr void print_all(auto&& first) {
+	std::cout << first << std::endl;
+}
+
+constexpr void print_all(auto&& first, auto&&... rest) {
+	std::cout << first << ", ";
+	print_all(rest...);
+}
+
+constexpr std::ostream& operator<<(std::ostream& out, const std::vector<std::string>& x) {
+	auto it = x.begin();
+	for (; it != x.end()-1; it++)
+		std::cout << *it << ", ";
+
+	std::cout << *it;
+	return out;
+}
+
+int main(int argc, char *argv[]) {
+	std::vector<std::string> args(argc);
+	std::generate(args.begin(), args.end(), [&argv, n = 0]() mutable {
+		return argv[n++];
+	});
+
+	std::cout << args << std::endl;
+	print_all("hello", "world", "this", "is", "a", "test");
+
+	return 0;
+}
+"#)
+
 p(p#"Example list:"#)
 
 ol("hi there", "test", "hello there", "hello world", "general kenobi")

@@ -10,6 +10,7 @@ SEARCH_PATH := $(shell pwd)/backends/
 .phony: clean
 
 all: $(HTMLFILES) $(MDFILES) readme.md
+	cp assets/* html/ -rf
 
 clean:
 	rm readme.md backends/backend.wpp $(HTMLFILES) $(MDFILES)
