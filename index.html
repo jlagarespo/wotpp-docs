@@ -31,7 +31,7 @@ which, since I'm writing this for testing purposes, I can't be bothered to do.
 <h3 style='color: red'>Example red heading</h3>
 <em>some italic text</em> <strong>and some bold one</strong><br>
 <sup>superscript</sup> and <sub>subscript</sub><br>
-<time>Time: Fri May 14 12:13:16 UTC 2021</time><br>
+<time>Time: Mon May 17 11:37:04 UTC 2021</time><br>
 <code>this is some code</code><br>
 <pre><code>#[ More code. ]
 let a() {
@@ -44,41 +44,41 @@ let a() {
 a()a()a()</code></pre>
 Output:<br>
 <samp>abc</samp>
-<pre><code><div class="highlight"><pre><span></span><span class="c1">// Time for some C++</span>
-<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp"></span>
+<pre><code><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #408080; font-style: italic">// Time for some C++</span>
+<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;iostream&gt;</span><span style="color: #BC7A00"></span>
+<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;string&gt;</span><span style="color: #BC7A00"></span>
+<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;vector&gt;</span><span style="color: #BC7A00"></span>
+<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;algorithm&gt;</span><span style="color: #BC7A00"></span>
 
-<span class="k">constexpr</span> <span class="kt">void</span> <span class="nf">print_all</span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="n">first</span><span class="p">)</span> <span class="p">{</span>
-	<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">first</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color: #008000; font-weight: bold">constexpr</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">print_all</span>(<span style="color: #008000; font-weight: bold">auto</span><span style="color: #666666">&amp;&amp;</span> first) {
+	std<span style="color: #666666">::</span>cout <span style="color: #666666">&lt;&lt;</span> first <span style="color: #666666">&lt;&lt;</span> std<span style="color: #666666">::</span>endl;
+}
 
-<span class="k">constexpr</span> <span class="kt">void</span> <span class="nf">print_all</span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="n">first</span><span class="p">,</span> <span class="k">auto</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">rest</span><span class="p">)</span> <span class="p">{</span>
-	<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">first</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;, &quot;</span><span class="p">;</span>
-	<span class="n">print_all</span><span class="p">(</span><span class="n">rest</span><span class="p">...);</span>
-<span class="p">}</span>
+<span style="color: #008000; font-weight: bold">constexpr</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">print_all</span>(<span style="color: #008000; font-weight: bold">auto</span><span style="color: #666666">&amp;&amp;</span> first, <span style="color: #008000; font-weight: bold">auto</span><span style="color: #666666">&amp;&amp;</span>... rest) {
+	std<span style="color: #666666">::</span>cout <span style="color: #666666">&lt;&lt;</span> first <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot;, &quot;</span>;
+	print_all(rest...);
+}
 
-<span class="k">constexpr</span> <span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span> <span class="n">out</span><span class="p">,</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-	<span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
-	<span class="k">for</span> <span class="p">(;</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">x</span><span class="p">.</span><span class="n">end</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">it</span><span class="o">++</span><span class="p">)</span>
-		<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;, &quot;</span><span class="p">;</span>
+<span style="color: #008000; font-weight: bold">constexpr</span> std<span style="color: #666666">::</span>ostream<span style="color: #666666">&amp;</span> <span style="color: #008000; font-weight: bold">operator</span><span style="color: #666666">&lt;&lt;</span>(std<span style="color: #666666">::</span>ostream<span style="color: #666666">&amp;</span> out, <span style="color: #008000; font-weight: bold">const</span> std<span style="color: #666666">::</span>vector<span style="color: #666666">&lt;</span>std<span style="color: #666666">::</span>string<span style="color: #666666">&gt;&amp;</span> x) {
+	<span style="color: #008000; font-weight: bold">auto</span> it <span style="color: #666666">=</span> x.begin();
+	<span style="color: #008000; font-weight: bold">for</span> (; it <span style="color: #666666">!=</span> x.end()<span style="color: #666666">-1</span>; it<span style="color: #666666">++</span>)
+		std<span style="color: #666666">::</span>cout <span style="color: #666666">&lt;&lt;</span> <span style="color: #666666">*</span>it <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot;, &quot;</span>;
 
-	<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it</span><span class="p">;</span>
-	<span class="k">return</span> <span class="n">out</span><span class="p">;</span>
-<span class="p">}</span>
+	std<span style="color: #666666">::</span>cout <span style="color: #666666">&lt;&lt;</span> <span style="color: #666666">*</span>it;
+	<span style="color: #008000; font-weight: bold">return</span> out;
+}
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
-	<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">args</span><span class="p">(</span><span class="n">argc</span><span class="p">);</span>
-	<span class="n">std</span><span class="o">::</span><span class="n">generate</span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">args</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="p">[</span><span class="o">&amp;</span><span class="n">argv</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">]()</span> <span class="k">mutable</span> <span class="p">{</span>
-		<span class="k">return</span> <span class="n">argv</span><span class="p">[</span><span class="n">n</span><span class="o">++</span><span class="p">];</span>
-	<span class="p">});</span>
+<span style="color: #B00040">int</span> main(<span style="color: #B00040">int</span> argc, <span style="color: #B00040">char</span> <span style="color: #666666">*</span>argv[]) {
+	std<span style="color: #666666">::</span>vector<span style="color: #666666">&lt;</span>std<span style="color: #666666">::</span>string<span style="color: #666666">&gt;</span> args(argc);
+	std<span style="color: #666666">::</span>generate(args.begin(), args.end(), [<span style="color: #666666">&amp;</span>argv, n <span style="color: #666666">=</span> <span style="color: #666666">0</span>]() <span style="color: #008000; font-weight: bold">mutable</span> {
+		<span style="color: #008000; font-weight: bold">return</span> argv[n<span style="color: #666666">++</span>];
+	});
 
-	<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">args</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-	<span class="n">print_all</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">,</span> <span class="s">&quot;world&quot;</span><span class="p">,</span> <span class="s">&quot;this&quot;</span><span class="p">,</span> <span class="s">&quot;is&quot;</span><span class="p">,</span> <span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;test&quot;</span><span class="p">);</span>
+	std<span style="color: #666666">::</span>cout <span style="color: #666666">&lt;&lt;</span> args <span style="color: #666666">&lt;&lt;</span> std<span style="color: #666666">::</span>endl;
+	print_all(<span style="color: #BA2121">&quot;hello&quot;</span>, <span style="color: #BA2121">&quot;world&quot;</span>, <span style="color: #BA2121">&quot;this&quot;</span>, <span style="color: #BA2121">&quot;is&quot;</span>, <span style="color: #BA2121">&quot;a&quot;</span>, <span style="color: #BA2121">&quot;test&quot;</span>);
 
-	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+	<span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+}
 </pre></div></code></pre>
 <p>Example list:</p>
 <ol>
@@ -98,6 +98,6 @@ Output:<br>
 <a href='.'>this is a test link</a><blockquote cite=''>wot++ is a lifestyle</blockquote>
 <br>
  - Sun Tzu, The Art of War<br>
-Build time: <time>Fri May 14 12:13:16 UTC 2021</time>
+Build time: <time>Mon May 17 11:37:04 UTC 2021</time>
 </body>
 </html>
