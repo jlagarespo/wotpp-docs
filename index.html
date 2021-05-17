@@ -14,7 +14,6 @@
 	<link rel='canonical' href='CHANGEME!!!'>
 	<link rel='icon' href='/favicon.ico'>
 	<link rel='icon' href='/favicon.svg' type='image/svg+xml'>
-	<link rel='stylesheet' href='/style/pygments-css/trac.css'>
 </head>
 <body>
 <h1>The wot++ documentation</h1>
@@ -31,7 +30,7 @@ which, since I'm writing this for testing purposes, I can't be bothered to do.
 <h3 style='color: red'>Example red heading</h3>
 <em>some italic text</em> <strong>and some bold one</strong><br>
 <sup>superscript</sup> and <sub>subscript</sub><br>
-<time>Time: Mon May 17 11:37:04 UTC 2021</time><br>
+<time>Time: Mon May 17 11:49:57 UTC 2021</time><br>
 <code>this is some code</code><br>
 <pre><code>#[ More code. ]
 let a() {
@@ -44,40 +43,40 @@ let a() {
 a()a()a()</code></pre>
 Output:<br>
 <samp>abc</samp>
-<pre><code><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #408080; font-style: italic">// Time for some C++</span>
-<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;iostream&gt;</span><span style="color: #BC7A00"></span>
-<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;string&gt;</span><span style="color: #BC7A00"></span>
-<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;vector&gt;</span><span style="color: #BC7A00"></span>
-<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;algorithm&gt;</span><span style="color: #BC7A00"></span>
+<pre><code><div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #999988; font-style: italic">// Time for some C++</span>
+<span style="color: #999999; font-weight: bold">#include</span> <span style="color: #999988; font-style: italic">&lt;iostream&gt;</span><span style="color: #999999; font-weight: bold"></span>
+<span style="color: #999999; font-weight: bold">#include</span> <span style="color: #999988; font-style: italic">&lt;string&gt;</span><span style="color: #999999; font-weight: bold"></span>
+<span style="color: #999999; font-weight: bold">#include</span> <span style="color: #999988; font-style: italic">&lt;vector&gt;</span><span style="color: #999999; font-weight: bold"></span>
+<span style="color: #999999; font-weight: bold">#include</span> <span style="color: #999988; font-style: italic">&lt;algorithm&gt;</span><span style="color: #999999; font-weight: bold"></span>
 
-<span style="color: #008000; font-weight: bold">constexpr</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">print_all</span>(<span style="color: #008000; font-weight: bold">auto</span><span style="color: #666666">&amp;&amp;</span> first) {
-	std<span style="color: #666666">::</span>cout <span style="color: #666666">&lt;&lt;</span> first <span style="color: #666666">&lt;&lt;</span> std<span style="color: #666666">::</span>endl;
+<span style="font-weight: bold">constexpr</span> <span style="color: #445588; font-weight: bold">void</span> <span style="color: #990000; font-weight: bold">print_all</span>(<span style="font-weight: bold">auto&amp;&amp;</span> first) {
+	std<span style="font-weight: bold">::</span>cout <span style="font-weight: bold">&lt;&lt;</span> first <span style="font-weight: bold">&lt;&lt;</span> std<span style="font-weight: bold">::</span>endl;
 }
 
-<span style="color: #008000; font-weight: bold">constexpr</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">print_all</span>(<span style="color: #008000; font-weight: bold">auto</span><span style="color: #666666">&amp;&amp;</span> first, <span style="color: #008000; font-weight: bold">auto</span><span style="color: #666666">&amp;&amp;</span>... rest) {
-	std<span style="color: #666666">::</span>cout <span style="color: #666666">&lt;&lt;</span> first <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot;, &quot;</span>;
+<span style="font-weight: bold">constexpr</span> <span style="color: #445588; font-weight: bold">void</span> <span style="color: #990000; font-weight: bold">print_all</span>(<span style="font-weight: bold">auto&amp;&amp;</span> first, <span style="font-weight: bold">auto&amp;&amp;</span>... rest) {
+	std<span style="font-weight: bold">::</span>cout <span style="font-weight: bold">&lt;&lt;</span> first <span style="font-weight: bold">&lt;&lt;</span> <span style="color: #bb8844">&quot;, &quot;</span>;
 	print_all(rest...);
 }
 
-<span style="color: #008000; font-weight: bold">constexpr</span> std<span style="color: #666666">::</span>ostream<span style="color: #666666">&amp;</span> <span style="color: #008000; font-weight: bold">operator</span><span style="color: #666666">&lt;&lt;</span>(std<span style="color: #666666">::</span>ostream<span style="color: #666666">&amp;</span> out, <span style="color: #008000; font-weight: bold">const</span> std<span style="color: #666666">::</span>vector<span style="color: #666666">&lt;</span>std<span style="color: #666666">::</span>string<span style="color: #666666">&gt;&amp;</span> x) {
-	<span style="color: #008000; font-weight: bold">auto</span> it <span style="color: #666666">=</span> x.begin();
-	<span style="color: #008000; font-weight: bold">for</span> (; it <span style="color: #666666">!=</span> x.end()<span style="color: #666666">-1</span>; it<span style="color: #666666">++</span>)
-		std<span style="color: #666666">::</span>cout <span style="color: #666666">&lt;&lt;</span> <span style="color: #666666">*</span>it <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot;, &quot;</span>;
+<span style="font-weight: bold">constexpr</span> std<span style="font-weight: bold">::</span>ostream<span style="font-weight: bold">&amp;</span> <span style="font-weight: bold">operator&lt;&lt;</span>(std<span style="font-weight: bold">::</span>ostream<span style="font-weight: bold">&amp;</span> out, <span style="font-weight: bold">const</span> std<span style="font-weight: bold">::</span>vector<span style="font-weight: bold">&lt;</span>std<span style="font-weight: bold">::</span>string<span style="font-weight: bold">&gt;&amp;</span> x) {
+	<span style="font-weight: bold">auto</span> it <span style="font-weight: bold">=</span> x.begin();
+	<span style="font-weight: bold">for</span> (; it <span style="font-weight: bold">!=</span> x.end()<span style="font-weight: bold">-</span><span style="color: #009999">1</span>; it<span style="font-weight: bold">++</span>)
+		std<span style="font-weight: bold">::</span>cout <span style="font-weight: bold">&lt;&lt;</span> <span style="font-weight: bold">*</span>it <span style="font-weight: bold">&lt;&lt;</span> <span style="color: #bb8844">&quot;, &quot;</span>;
 
-	std<span style="color: #666666">::</span>cout <span style="color: #666666">&lt;&lt;</span> <span style="color: #666666">*</span>it;
-	<span style="color: #008000; font-weight: bold">return</span> out;
+	std<span style="font-weight: bold">::</span>cout <span style="font-weight: bold">&lt;&lt;</span> <span style="font-weight: bold">*</span>it;
+	<span style="font-weight: bold">return</span> out;
 }
 
-<span style="color: #B00040">int</span> main(<span style="color: #B00040">int</span> argc, <span style="color: #B00040">char</span> <span style="color: #666666">*</span>argv[]) {
-	std<span style="color: #666666">::</span>vector<span style="color: #666666">&lt;</span>std<span style="color: #666666">::</span>string<span style="color: #666666">&gt;</span> args(argc);
-	std<span style="color: #666666">::</span>generate(args.begin(), args.end(), [<span style="color: #666666">&amp;</span>argv, n <span style="color: #666666">=</span> <span style="color: #666666">0</span>]() <span style="color: #008000; font-weight: bold">mutable</span> {
-		<span style="color: #008000; font-weight: bold">return</span> argv[n<span style="color: #666666">++</span>];
+<span style="color: #445588; font-weight: bold">int</span> main(<span style="color: #445588; font-weight: bold">int</span> argc, <span style="color: #445588; font-weight: bold">char</span> <span style="font-weight: bold">*</span>argv[]) {
+	std<span style="font-weight: bold">::</span>vector<span style="font-weight: bold">&lt;</span>std<span style="font-weight: bold">::</span>string<span style="font-weight: bold">&gt;</span> args(argc);
+	std<span style="font-weight: bold">::</span>generate(args.begin(), args.end(), [<span style="font-weight: bold">&amp;</span>argv, n <span style="font-weight: bold">=</span> <span style="color: #009999">0</span>]() <span style="font-weight: bold">mutable</span> {
+		<span style="font-weight: bold">return</span> argv[n<span style="font-weight: bold">++</span>];
 	});
 
-	std<span style="color: #666666">::</span>cout <span style="color: #666666">&lt;&lt;</span> args <span style="color: #666666">&lt;&lt;</span> std<span style="color: #666666">::</span>endl;
-	print_all(<span style="color: #BA2121">&quot;hello&quot;</span>, <span style="color: #BA2121">&quot;world&quot;</span>, <span style="color: #BA2121">&quot;this&quot;</span>, <span style="color: #BA2121">&quot;is&quot;</span>, <span style="color: #BA2121">&quot;a&quot;</span>, <span style="color: #BA2121">&quot;test&quot;</span>);
+	std<span style="font-weight: bold">::</span>cout <span style="font-weight: bold">&lt;&lt;</span> args <span style="font-weight: bold">&lt;&lt;</span> std<span style="font-weight: bold">::</span>endl;
+	print_all(<span style="color: #bb8844">&quot;hello&quot;</span>, <span style="color: #bb8844">&quot;world&quot;</span>, <span style="color: #bb8844">&quot;this&quot;</span>, <span style="color: #bb8844">&quot;is&quot;</span>, <span style="color: #bb8844">&quot;a&quot;</span>, <span style="color: #bb8844">&quot;test&quot;</span>);
 
-	<span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+	<span style="font-weight: bold">return</span> <span style="color: #009999">0</span>;
 }
 </pre></div></code></pre>
 <p>Example list:</p>
@@ -98,6 +97,6 @@ Output:<br>
 <a href='.'>this is a test link</a><blockquote cite=''>wot++ is a lifestyle</blockquote>
 <br>
  - Sun Tzu, The Art of War<br>
-Build time: <time>Mon May 17 11:37:04 UTC 2021</time>
+Build time: <time>Mon May 17 11:49:57 UTC 2021</time>
 </body>
 </html>
